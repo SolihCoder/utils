@@ -2,4 +2,8 @@ fastapi==0.110.1
 pydantic==2.7.0
 pydantic-settings==2.2.1
 SQLAlchemy==2.0.29
+pytest==8.1.1
+pytest-asyncio==0.23.6
+pytest-ordering==0.6
 alembic==1.13.1
+aiosqlite==0.20.0

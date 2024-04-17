@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = f'postgresql+asyncpg://solih:123@localhost:5432/sott_comment_db'
+    DATABASE_URL: str = f'postgresql+asyncpg://solih:123@localhost:5432/utils_db'
 
     LANGUAGES: list[str] = ['uz', 'en', 'ru']
     DEFAULT_LANGUAGE: str = 'en'
@@ -14,3 +14,5 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+__all__ = ['settings']

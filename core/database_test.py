@@ -1,13 +1,13 @@
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, declarative_base
 import pytest
-from core import Base
 
 SQLALCHEMY_DATABASE_URL = "sqlite+aiosqlite:///:memory:"
 
 engine = create_async_engine(SQLALCHEMY_DATABASE_URL, echo=False)
 async_session = sessionmaker(bind=engine, expire_on_commit=False, class_=AsyncSession)
 
+Base = declarative_base()
 
 async def create_tables():
     async with engine.begin() as connection:
@@ -31,4 +31,4 @@ async def cleanup_database():
     await engine.dispose()
 
 
-__all__ = ['override_get_async_session', 'create_tables']
+__all__ = ['override_get_async_session', 'create_tables', 'Base']
